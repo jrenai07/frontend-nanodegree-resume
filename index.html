@@ -46,7 +46,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
-<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>-->
 
   <meta name="viewport" content="width=device-width">
 </head>
@@ -66,6 +66,17 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       <h2>Education</h2>
     </div>
     <div id="mapDiv">
+    <script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+          center: {lat: 44.540, lng: -78.546},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
       <h2>Where I've Lived and Worked</h2>
     </div>
     <div id="lets-connect" class="dark-gray">
