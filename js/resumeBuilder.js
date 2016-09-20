@@ -10,7 +10,7 @@ var bio = {
     },
     "welcomeMessage": "Aloha and Mahalos for considering my Resume!",
     "skills": [
-    "Ruby", "Ruby on Rails", "HTML/CSS","Javascript" 
+    "HTML/CSS", "Javascript", "Python","JQuery | Node.Js | Angular.Js"
     ],
     "bioPic": "images/me.jpg",
 }
@@ -75,19 +75,19 @@ var work = {
         "employer": "Charles Schwab",
         "title": "Stock Broker",
         "location": "Austin, TX",
-        "dates": "2011-2013",
+        "dates": "2012-2014",
         "description" : "Series 7 & 63 licensed broker. I worked on the active trader team, helping clients place trades and understand our active trading tools"
     },
     {
         "employer": "Dance Austin Studio",
         "title": "Dance Instructor",
         "location": "Austin, TX",
-        "dates": "2011-Present",
+        "dates": "2012-Present",
         "description" : "I teach adult dance classes including, Hip Hop, Technique 101, Jazz, Limber & Lengthen, and Video Vixen."
     }
   ]
 }
-function displayWork (){
+work.display = function() {
     for (job in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
 
@@ -108,7 +108,64 @@ function displayWork (){
         formattedDescription);
   }
 }
-displayWork();
+work.display();
+
+var education = {
+    "schools": [
+        {
+            "name": "Hawaii Pacific University",
+            "location": "Honolulu, Hawaii",
+            "degree": "B.A.",
+            "majors": ["Internation Relations", "Spanish"],
+            "dates": "2007-2011",
+        }
+    ],
+    "onlineCourses": [
+        {
+            "title": "Front-End Web Developer Nanodegree",
+            "school": "Udacity",
+            "dates": "2016",
+            "url": "https://www.udacity.com/"
+        },
+        {
+            "title": "Full Stack Web Developer Nanodegree",
+            "school": "Udacity",
+            "dates": "2016",
+            "url": "https://www.udacity.com/"
+        }
+    ]
+};
+
+education.display = function() {
+    for (edu in education.schools) {
+        $("#education").append(HTMLschoolStart);
+
+        var formattedSchoolName  = HTMLschoolName.replace("%data%", education.schools[edu].name);
+        var formattedSchoolDegree  = HTMLschoolDegree.replace("%data%", education.schools[edu].degree);
+        var formattedSchoolDates  = HTMLschoolDates.replace("%data%", education.schools[edu].dates);
+        var formattedSchoolLocation  =  HTMLschoolLocation.replace("%data%", education.schools[edu].location);
+        var formattedSchoolMajors  = HTMLschoolMajor.replace("%data%", education.schools[edu].majors);
+
+        $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajors);
+    };
+
+        
+        $("#education").append(HTMLonlineClasses);
+        
+    for (edu in education.onlineCourses) {
+        $("#education").append(HTMLschoolStart);
+        
+        var formattedCourseSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[edu].school);
+        var formattedCourseTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[edu].title);
+        var formattedCourseDates = HTMLonlineDates.replace("%data%", education.onlineCourses[edu].dates);
+        var formattedCourseUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[edu].url);
+
+        $(".education-entry:last").append(formattedCourseTitle + formattedCourseSchool, formattedCourseDates, formattedCourseUrl);
+    }
+}
+  
+education.display();
+
 
 var projects = {
     "projects": [
@@ -117,8 +174,8 @@ var projects = {
         "dates": "2014-Present",
         "description": "Personal blog about my journey to achieve my life goals and live the life I truly want to live.",
         "images": [
-            "http://loremflickr.com/400/400",
-            "http://loremflickr.com/400/400"
+            "http://jrenai.com/wp-content/uploads/2016/01/PASSIONS-FINALS-JPEG.jpg",
+            "http://jrenai.com/wp-content/uploads/2016/01/GOALS-JPEG.jpg"
             ]
     },
     {
@@ -126,8 +183,8 @@ var projects = {
         "dates": "2014-Present",
         "description": "An adventure travel database for sport and travel enthusiast.",
         "images": [
-            "http://loremflickr.com/400/400",
-            "http://loremflickr.com/400/400"
+            "http://goborderless.co/wp-content/uploads/2014/12/gosymbolweb1.png",
+            "http://goborderless.co/wp-content/uploads/2014/12/Trekking.png"
 
         ]
 
@@ -160,6 +217,13 @@ projects.display = function() {
   }
 }
 projects.display();
+
+$(document).click(function(loc) {
+    var x = loc.pageX;
+    var y = loc.pageY;
+
+    logClicks(x,y);
+});
 
 function inName(name) {
     name = bio.name.trim().split(" ");
