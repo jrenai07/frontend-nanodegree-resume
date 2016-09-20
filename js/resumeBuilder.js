@@ -1,5 +1,5 @@
 var bio = {
-    "name" : "Jennell Lewis",
+    "name": "Jennell Lewis",
     "role": "Web Developer",
     "contacts": {
         "mobile": "409-782-8816",
@@ -10,10 +10,10 @@ var bio = {
     },
     "welcomeMessage": "Aloha and Mahalos for considering my Resume!",
     "skills": [
-    "HTML/CSS", "Javascript", "Python","JQuery | Node.Js | Angular.Js"
+        "HTML/CSS", "Javascript", "Python", "JQuery | Node.Js | Angular.Js"
     ],
     "bioPic": "images/me.jpg",
-}
+};
 
 var name = bio.name;
 var formattedName = HTMLheaderName.replace("%data%", name);
@@ -52,7 +52,7 @@ var welcomeMessage = bio.welcomeMessage;
 var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", welcomeMessage);
 $("#header").append(formattedWelcomeMessage);
 
-if(bio.skills.length > 0) {
+if (bio.skills.length > 0) {
 
     $("#header").append(HTMLskillsStart);
 
@@ -70,91 +70,83 @@ if(bio.skills.length > 0) {
 
 
 var work = {
-    "jobs": [
-    {
+    "jobs": [{
         "employer": "Charles Schwab",
         "title": "Stock Broker",
         "location": "Austin, TX",
         "dates": "2012-2014",
-        "description" : "Series 7 & 63 licensed broker. I worked on the active trader team, helping clients place trades and understand our active trading tools"
-    },
-    {
+        "description": "Series 7 & 63 licensed broker. I worked on the active trader team, helping clients place trades and understand our active trading tools"
+    }, {
         "employer": "Dance Austin Studio",
         "title": "Dance Instructor",
         "location": "Austin, TX",
         "dates": "2012-Present",
-        "description" : "I teach adult dance classes including, Hip Hop, Technique 101, Jazz, Limber & Lengthen, and Video Vixen."
-    }
-  ]
-}
+        "description": "I teach adult dance classes including, Hip Hop, Technique 101, Jazz, Limber & Lengthen, and Video Vixen."
+    }]
+};
 work.display = function() {
     for (job in work.jobs) {
-    $("#workExperience").append(HTMLworkStart);
+        $("#workExperience").append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    $(".work-entry:last").append(
-        formattedEmployerTitle);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        $(".work-entry:last").append(
+            formattedEmployerTitle);
 
-    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    $(".work-entry:last").append(
-        formattedDates);
-    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    $(".work-entry:last").append(
-        formattedLocation);
-    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-    $(".work-entry:last").append(
-        formattedDescription);
-  }
-}
+        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(
+            formattedDates);
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(
+            formattedLocation);
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(
+            formattedDescription);
+    }
+};
 work.display();
 
 var education = {
-    "schools": [
-        {
-            "name": "Hawaii Pacific University",
-            "location": "Honolulu, Hawaii",
-            "degree": "B.A.",
-            "majors": ["Internation Relations", "Spanish"],
-            "dates": "2007-2011",
-        }
-    ],
-    "onlineCourses": [
-        {
-            "title": "Front-End Web Developer Nanodegree",
-            "school": "Udacity",
-            "dates": "2016",
-            "url": "https://www.udacity.com/"
-        },
-        {
-            "title": "Full Stack Web Developer Nanodegree",
-            "school": "Udacity",
-            "dates": "2016",
-            "url": "https://www.udacity.com/"
-        }
-    ]
+    "schools": [{
+        "name": "Hawaii Pacific University",
+        "location": "Honolulu, Hawaii",
+        "degree": "B.A.",
+        "majors": ["Internation Relations", "Spanish"],
+        "dates": "2007-2011",
+    }],
+    "onlineCourses": [{
+        "title": "Front-End Web Developer Nanodegree",
+        "school": "Udacity",
+        "dates": "2016",
+        "url": "https://www.udacity.com/"
+    }, {
+        "title": "Full Stack Web Developer Nanodegree",
+        "school": "Udacity",
+        "dates": "2016",
+        "url": "https://www.udacity.com/"
+    }]
 };
 
 education.display = function() {
     for (edu in education.schools) {
         $("#education").append(HTMLschoolStart);
 
-        var formattedSchoolName  = HTMLschoolName.replace("%data%", education.schools[edu].name);
-        var formattedSchoolDegree  = HTMLschoolDegree.replace("%data%", education.schools[edu].degree);
-        var formattedSchoolDates  = HTMLschoolDates.replace("%data%", education.schools[edu].dates);
-        var formattedSchoolLocation  =  HTMLschoolLocation.replace("%data%", education.schools[edu].location);
-        var formattedSchoolMajors  = HTMLschoolMajor.replace("%data%", education.schools[edu].majors);
+        var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[edu].name);
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[edu].degree);
+        var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[edu].dates);
+        var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[edu].location);
+        var formattedSchoolMajors = HTMLschoolMajor.replace("%data%", education.schools[edu].majors);
 
         $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree, formattedSchoolDates, formattedSchoolLocation, formattedSchoolMajors);
-    };
+    }
 
-        
-        $("#education").append(HTMLonlineClasses);
-        
+
+    $("#education").append(HTMLonlineClasses);
+
     for (edu in education.onlineCourses) {
         $("#education").append(HTMLschoolStart);
-        
+
         var formattedCourseSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[edu].school);
         var formattedCourseTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[edu].title);
         var formattedCourseDates = HTMLonlineDates.replace("%data%", education.onlineCourses[edu].dates);
@@ -162,23 +154,21 @@ education.display = function() {
 
         $(".education-entry:last").append(formattedCourseTitle + formattedCourseSchool, formattedCourseDates, formattedCourseUrl);
     }
-}
-  
+};
+
 education.display();
 
 
 var projects = {
-    "projects": [
-    {
+    "projects": [{
         "title": "Jrenai.com",
         "dates": "2014-Present",
         "description": "Personal blog about my journey to achieve my life goals and live the life I truly want to live.",
         "images": [
             "http://jrenai.com/wp-content/uploads/2016/01/PASSIONS-FINALS-JPEG.jpg",
             "http://jrenai.com/wp-content/uploads/2016/01/GOALS-JPEG.jpg"
-            ]
-    },
-    {
+        ]
+    }, {
         "title": "GoBorderless.com",
         "dates": "2014-Present",
         "description": "An adventure travel database for sport and travel enthusiast.",
@@ -188,33 +178,32 @@ var projects = {
 
         ]
 
-    }
-  ]
-}
+    }]
+};
 projects.display = function() {
     for (project in projects.projects) {
         $("#projects").append(HTMLprojectStart);
 
-    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-    $(".project-entry:last").append(
-        formattedTitle);
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        $(".project-entry:last").append(
+            formattedTitle);
 
-    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-    $(".project-entry:last").append(
-        formattedDates);
+        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        $(".project-entry:last").append(
+            formattedDates);
 
-    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-    $(".project-entry:last").append(
-        formattedDescription);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        $(".project-entry:last").append(
+            formattedDescription);
 
-    if (projects.projects[project].images.length > 0) {
-        for (image in projects.projects[project].images) {
-            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-            $(".project-entry:last").append(
-        formattedImage);
+        if (projects.projects[project].images.length > 0) {
+            for (image in projects.projects[project].images) {
+                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+                $(".project-entry:last").append(
+                    formattedImage);
+            }
         }
     }
-  }
 }
 projects.display();
 
@@ -222,14 +211,14 @@ $(document).click(function(loc) {
     var x = loc.pageX;
     var y = loc.pageY;
 
-    logClicks(x,y);
+    logClicks(x, y);
 });
 
 function inName(name) {
     name = bio.name.trim().split(" ");
     console.log(name);
     name[1] = name[1].toUpperCase();
-    name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 
     return name[0] + " " + name[1];
 }
@@ -237,5 +226,3 @@ function inName(name) {
 $('#main').append(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
-
-
